@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, render_template, request, url_for, abort
 from models import db, User
+from forms import UserSettingsForm
 
 PROJECT_PATH = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 INSTANCE_FOLDER_PATH = os.path.join(PROJECT_PATH, 'tmp/instance')
@@ -21,7 +22,9 @@ def index():
 
 @app.route('/user/<username>')
 def user_profile(username):
-    return "Hello, " + username
+    user = User.query.filter_by(username=username).first()
+    form = UserSettingsForm(obj=user)
+    return render_template('userprefs.html', form=form, user=user)
 
 
 @app.route('/user/<username>/post')

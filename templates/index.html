@@ -16,6 +16,8 @@
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button></p>
 
+<div style="text-align: center;"><img src="{{ url_for('static', filename='img/slogan.jpg') }}"></div>
+
 
 <script type=text/javascript>
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
@@ -40,8 +42,8 @@
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-    document.getElementById('status').innerHTML = 'Please log ' +
-      'into Facebook.';
+    // document.getElementById('status').innerHTML = 'Please log ' +
+    //   'into Facebook.';
   }
 }
 
@@ -91,16 +93,6 @@ FB.getLoginStatus(function(response) {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  function get_user() {
-      FB.api('/me', function(response) {
-       $.post(   '/_get_facebook_login', 
-                  { facebook_id: response.id, name: response.name },
-                  function(data) {
-                    console.log(data);
-                    location.reload(true);
-                  });
-      });
-  }
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {

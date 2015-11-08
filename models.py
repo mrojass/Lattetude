@@ -15,6 +15,7 @@ class User(db.Model):
     gender_preference = db.Column(Enum('M', 'F'))
     age_preference = db.Column(db.String(50))
     purpose_preference = db.Column(db.String(256))
+    availability_preference = db.Column(db.String(80))
 
     def __init__(self, facebook_id, name):
         self.facebook_id = facebook_id

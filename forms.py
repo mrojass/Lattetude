@@ -1,8 +1,8 @@
 from flask_wtf import Form
 
-from wtforms import SelectMultipleField, SelectField, RadioField, SubmitField. TextAreaField
+from wtforms import SelectMultipleField, SelectField, RadioField, SubmitField, TextAreaField
 from wtforms.validators import Required
-from flask.ext.wtforms.htlm5 import IntegerRangeField
+from flask_wtf.html5 import IntegerRangeField
 from wtforms.widgets.core import HTMLString, html_params, text_type, escape
 
 
