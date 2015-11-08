@@ -1,5 +1,5 @@
 from slugify import slugify
-
+from sqlalchemy import Enum
 from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -11,6 +11,10 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True)
     name = db.Column(db.String(50))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    distance_preference = db.Column(db.Integer)
+    gender_preference = db.Column(Enum('M', 'F'))
+    age_preference = db.Column(db.String(50))
+    purpose_preference = db.Column(db.String(256))
 
     def __init__(self, facebook_id, name):
         self.facebook_id = facebook_id

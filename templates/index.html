@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Welcome to Lattetude</title>
 <meta charset="UTF-8">
-</head>
+	<title>
+	Latte°tude
+	</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}"></head>
+
 <body>
+
+<div style="text-align: center;"><img src="{{ url_for('static', filename='img/logo.png') }}"></div>
+
+<p id="para1"> Welcome to Latte°tude <br> Whether you're looking for a study buddy or you're looking <br> for someone to chit chat with, you've come to the right place. <br> Proceed to the login page to discover a new friend. <br> <br>
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button></p>
+
+
 <script type=text/javascript>
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     console.log($SCRIPT_ROOT)
@@ -112,9 +124,6 @@ FB.getLoginStatus(function(response) {
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
 <div id="status">
 </div>
 <!-- Included JS Files (Compressed) -->
@@ -122,4 +131,5 @@ FB.getLoginStatus(function(response) {
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 </body>
+
 </html>
