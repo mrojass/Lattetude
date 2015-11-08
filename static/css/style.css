@@ -3,7 +3,7 @@
 /*---index.html---*/
 
 body {
-	background-image: url("images/background.png");
+	background-image: url("../img/background.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;	
 	}
@@ -11,6 +11,12 @@ body {
 img {
 	height: 225px;
 	width: 225px:;
+	padding-top: 20px;
+}
+
+#slogan_img {
+	height: 225px;
+	width: 100%;
 	padding-top: 20px;
 }
 

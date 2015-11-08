@@ -49,11 +49,11 @@ class SelectPickerMulti(SelectMultipleField):
 
 
 class UserSettingsForm(Form):
-    distance_preference = IntegerRangeField('Please select distance radius in miles')
+    distance_preference = SelectField
     gender_preference = RadioField('gender', validators=[Required("Please select gender")],
                         choices=[('female', 'Female'), ('male', 'Male')])
     age_preference = IntegerRangeField('Please select age range')
-    purpose_preference = SelectPickerMulti('Please select your purpose for meeting up',
+    purpose_preference = SelectField('Please select your purpose for meeting up',
         choices=[('support', 'Support'), ('study', 'Study'), ('chill', 'Chill')])
     submit = SubmitField('Save Preferences')
 
